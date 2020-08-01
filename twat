@@ -41,7 +41,7 @@ fi
 
 function get_ascii_location() 
 {
-local icons_directory="$HOME/.TwaT/ascii/" # Where ascii's arts are located (directory)
+local icons_directory="./ascii/" # Where ascii's arts are located (directory)
 if [ -e $icons_directory$1 ] ; then
 	current_icon=$(cat $icons_directory$1) # If the focused window class name exists as a file on your ascii's directory, set current_icon as the content of that file
 
