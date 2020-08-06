@@ -15,6 +15,7 @@ case $1 in
 esac
  
 COLOR='\033[0;34m' # uses ANSI escapes codes to set a code. Default: blue
+SLEEP=0.2 # time between each while true loop iteration. Default: 0.2 (200 ms). Used to get better (less) resource consumption.
 last_class=1010 # Any value should do it, this is to avoid a bug where current_class = last_class, so program prints every second instead of when focused window changes.
 
 
@@ -76,7 +77,7 @@ fi
 
 while :
 do
-	sleep 0.1 # To get better performance. You can delete it or set it to 0 if you want, anyway gives a little delay that you could or couldn't like between every new icon refresh  
+	sleep $SLEEP # To get better performance. You can delete it or set it to 0 if you want, anyway gives a little delay that you could or couldn't like between every new icon refresh  
 	get_class
 	compare_class
 done
