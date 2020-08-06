@@ -5,7 +5,7 @@ This is a simple shell script that gets your current focused window id and outpu
 ~> Change color of the output: change $COLOR variable on "asid.sh". It uses ANSI escape codes.
 ~> Change delay between each loop iteration: change $SLEEP variable on "asid.sh". Currently, value is on seconds (less ms = more resource consumption & "performance", more ms = less performance & less resource consumption)
 
->> IMPORTANT
+/// IMPORTANT
 ~> Add / change ascii's for a specific application:
 1- Open asid with "-s" or "--show" option (asid --show)
 2- Focus a window of that application (Firefox for example, just hover over it or click it)
