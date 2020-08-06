@@ -6,13 +6,16 @@
 
 # Start option to show or not window class
 case $1 in
--g|--get) xprop WM_CLASS | awk '{print $NF}' | tr '-' "_" | tr '"' " " ;; # Kind of useless piece of code
- s|--show) show_class=true ;; # If -s or --show passed as argument, it shows ascii's AND class of the window
+ -g|--get) xprop WM_CLASS | awk '{print $NF}' | tr '-' "_" | tr '"' " " ;; # Kind of useless piece of code
+ -s|--show) show_class=true ;; # If -s or --show passed as argument, it shows ascii's AND class of the window
+ -h|--help) 
+ printf("\n ASIGD is a simple script that displays a icon in function of your current focused window. \n\tArguments:\n  -s \/ --show: to display focused window's WM_CLASS (necessary to implement personalized ascii art\n  -h \/--help: Displays this list. \n\n\t)")
+ printf ("\n\t Sidenote: if you want to set your own ascii art, create a .txt file on ascii/. The name of that file should be the name that displays with the --show option (formatted WM_CLASS).\n Example: i want to set an ascii to gnome terminal. Then i'll open asigd --show, focus a gnome terminal and then copy those words to name the ascii. For this case, the file should be named it as 'Gnome_Terminal'");;
 **) show_class=false ;; 
 esac
  
-COLOR='\033[0;34m' # uses ANSI escapes codes
-last_class=1010 # Any value should do it, this is to avoid a bug where current_class = last_class, so program prints every second
+COLOR='\033[0;34m' # uses ANSI escapes codes to set a code. Default: blue
+last_class=1010 # Any value should do it, this is to avoid a bug where current_class = last_class, so program prints every second instead of when focused window changes.
 
 
 # Function get_class: get focused window id using xdotool, then xprop use it to get focused window class. Also, it removes '"-'
